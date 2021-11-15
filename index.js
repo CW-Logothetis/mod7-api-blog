@@ -21,7 +21,7 @@
     
 // MDN: 'The DOMContentLoaded event fires when the initial HTML document has been completely loaded and parsed, 
 // without waiting for stylesheets, images, and subframes to finish loading.'
-// In effect, start fetching once HTML is loaded, but don't need to wait for CSS and images.
+// In effect, start fetching once HTML is loaded, cos it needs the `ul` to be there, but don't need to wait for CSS and images.
 
     document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -88,3 +88,21 @@
             fetchData()
         })
         
+///////////////////////////        
+// 2. POST new blog post //
+/////////////////////////// 
+
+// 2a. listen to form for a submit and save input in an object
+const form = document.getElementById("new-post")
+
+form.addEventListener('submit', function(e) {
+
+    e.preventDefault() // stops page refreshing on submit
+    const postTitle = document.getElementById("post-title").value
+    const postBody = document.getElementById("post-body").value
+    const data = {
+        title: postTitle,
+        body: postBody
+    }
+    console.log(data)
+})
