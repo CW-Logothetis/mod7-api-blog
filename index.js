@@ -134,7 +134,7 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
         blogLi.dataset.id = post.id
         title.innerHTML = post.title
         p.innerHTML = post.body
-        blogUL.append(blogLi)
+        blogUL.prepend(blogLi)
         blogLi.append(title, hr, blockQuote)
         blockQuote.append(p)
     })
